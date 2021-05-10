@@ -32,11 +32,16 @@ export default {
     methods:{
       // CORS 
       registerSystem(){
-        Axios.get('http://localhost:3000/register',{
-            params:this.newUser
+        // Axios.get('http://localhost:3000/register',{
+        //     params:this.newUser
+        // }).then(function(response){
+        //   alert(response.data)
+        // })
+        Axios.post("http://localhost:3000/register",{
+          params:this.newUser
         }).then(function(response){
           alert(response.data)
-        })
+        });
       }
     }
 };
