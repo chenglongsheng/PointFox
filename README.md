@@ -1,2 +1,3 @@
 # PointFox
-npm i 下载依赖
+下载依赖
+````npm i````
