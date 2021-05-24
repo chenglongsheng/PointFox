@@ -40,7 +40,7 @@ export default {
         Axios.post("http://localhost:3000/register",{
           params:this.newUser
         }).then(function(response){
-          alert(response.data)
+          alert(response.data.state)
         });
       }
     }
