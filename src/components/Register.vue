@@ -6,7 +6,7 @@
           <span>用户注册</span>
         </div>
         <div id="registerContentBody">
-            <el-input id="newusername" v-model="newUser.newusername" clearable></el-input>
+            <el-input id="newusername" v-model="newUser.newusername" @blur="checkUserInform" clearable></el-input>
             <el-input id="newpassword" v-model="newUser.newpassword" show-password clearable></el-input>
         </div>
         <div id="registerSubmit">
@@ -30,6 +30,17 @@ export default {
         }
     },
     methods:{
+      // 检查用户信息
+      checkUserInform(){
+        // alert("焦点离开")
+        Axios.get('http://localhost:3000/register/check',{
+          params:this.newUser
+        }).then(function(reaponse){
+          alert(reaponse.data.message)
+        })
+      },
+
+
       // CORS 
       registerSystem(){
         // Axios.get('http://localhost:3000/register',{
