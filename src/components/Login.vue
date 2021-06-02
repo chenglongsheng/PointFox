@@ -35,12 +35,24 @@ export default {
     methods:{
       loginSystem(){
         let that = this;
-        Axios.get('http://localhost:3000/login',{
+        // Axios.get('http://localhost:3000/login',{
+        //   params:this.user
+        // }).then(function (response){
+        //     alert(response.data.username)
+        //     alert(response.data.password)
+        //     that.$router.push({path:"/work"})
+        // })
+
+        Axios.post('http://localhost:3000/login',{
           params:this.user
-        }).then(function (response){
-            alert(response.data.username)
-            alert(response.data.password)
+        }).then(function(response){
+          // alert(response.data.state)
+          if(response.data.state == 1){
             that.$router.push({path:"/work"})
+          } else {
+            alert("输入有误")
+          }
+          
         })
       }
     }
